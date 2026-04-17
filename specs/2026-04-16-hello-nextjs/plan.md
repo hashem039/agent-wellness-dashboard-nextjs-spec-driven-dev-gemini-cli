@@ -15,7 +15,14 @@
 - [x] Update `src/app/page.tsx` to show "AgentClinic is open for business" with a mission-reflecting header.
 - [x] Ensure `src/app/layout.tsx` is clean and ready for Phase 2.
 
-## 3. Verification
+## 3. Testing Setup
+- [x] Install `vitest`, `@vitejs/plugin-react`, `jsdom`, and `@testing-library/react`.
+- [x] Create `vitest.config.ts`.
+- [x] Add `test` script to `package.json`.
+- [x] Create initial unit test in `src/app/page.test.tsx`.
+
+## 4. Verification
 - [x] Run `npm run dev` to confirm local server functionality.
 - [x] Run `npm run build` to confirm production build stability.
 - [x] Run `npm run lint` to ensure code quality.
+- [x] Run `npm test` to ensure automated tests pass.

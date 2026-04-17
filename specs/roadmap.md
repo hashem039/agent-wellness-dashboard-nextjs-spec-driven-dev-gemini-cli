@@ -8,6 +8,7 @@ Phases are intentionally small — each one is a shippable slice of work, indepe
 - [x] Initialize Next.js with App Router and TypeScript
 - [x] Basic `/` home page returning "AgentClinic is open for business"
 - [x] Confirm build and dev server work
+- [x] **Add Vitest and basic validation tests**
 
 ## Phase 2 — Base Layout
 - Define global `layout.tsx` (header, nav, main, footer)
