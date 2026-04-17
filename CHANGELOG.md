@@ -2,6 +2,7 @@
 
 ## 2026-04-17
 
+- feat: add changelog-manager skill and initialize CHANGELOG.md
 - docs: add testing instructions and Vitest to README
 - feat: integrate Vitest for validation and update specs
 - Adding a prompt for project-replaning, adding checkboxes to mark phases as completed
