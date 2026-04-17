@@ -2,6 +2,9 @@
 
 ## 2026-04-17
 
+- docs: add detailed SDD lifecycle section to README
+- chore: ignore .skill files and add prompt for skill installation
+- docs: update CHANGELOG.md with latest commit
 - feat: add changelog-manager skill and initialize CHANGELOG.md
 - docs: add testing instructions and Vitest to README
 - feat: integrate Vitest for validation and update specs
