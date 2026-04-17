@@ -62,6 +62,24 @@ npm run dev
 ```
 Visit [http://localhost:3000](http://localhost:3000) to see the clinic in action.
 
+### Testing
+To ensure the clinic is operating correctly, run the automated tests:
+
+1. **Run tests once:**
+   ```bash
+   npm test
+   ```
+
+2. **Watch mode (auto-reload):**
+   ```bash
+   npx vitest
+   ```
+
+3. **UI mode (visual dashboard):**
+   ```bash
+   npx vitest --ui
+   ```
+
 ### Production
 Build the application for production:
 ```bash
