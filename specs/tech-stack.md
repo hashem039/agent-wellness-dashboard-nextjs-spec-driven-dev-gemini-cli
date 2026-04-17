@@ -27,9 +27,10 @@ Next.js is chosen because:
 - Migrations via plain SQL or a lightweight tool like `drizzle-kit`.
 - No heavy ORM to start; focus on data integrity.
 
-## Testing
+## Testing & Validation
 
-- **Vitest** — modern, fast, and works seamlessly with TypeScript.
+- **Vitest:** Primary testing framework for unit and integration tests. Chosen for its speed, modern features, and native TypeScript support.
+- **Validation Scripts:** Project-level validation is automated via custom scripts (e.g., `npm test`) to ensure requirements are met during development.
 
 ## Tooling
 

@@ -62,6 +62,24 @@ npm run dev
 ```
 Visit [http://localhost:3000](http://localhost:3000) to see the clinic in action.
 
+### Testing
+To ensure the clinic is operating correctly, run the automated tests:
+
+1. **Run tests once:**
+   ```bash
+   npm test
+   ```
+
+2. **Watch mode (auto-reload):**
+   ```bash
+   npx vitest
+   ```
+
+3. **UI mode (visual dashboard):**
+   ```bash
+   npx vitest --ui
+   ```
+
 ### Production
 Build the application for production:
 ```bash
@@ -83,6 +101,43 @@ AgentClinic is being built in iterative phases:
 - [ ] **Phase 8:** Staff Dashboard (Management Metrics)
 - [ ] **Phase 9:** Polish & UI (Accessibility & Aesthetics)
 - [ ] **Phase 10:** Hardening (Error Boundaries & Security)
+
+## 🛠️ Maintenance
+
+### Changelog Management
+This project uses a custom Gemini CLI skill, `changelog-manager`, to maintain the `CHANGELOG.md`.
+
+To update the changelog before a merge or release:
+1. Ensure all changes are committed.
+2. Activate the skill in Gemini CLI: `activate_skill(name="changelog-manager")` (or let the agent trigger it).
+3. The agent will run the update script to synchronize `CHANGELOG.md` with the git history.
+
+## 🧩 Spec-Driven Development (SDD) Lifecycle
+
+This project follows a precise technical lifecycle powered by **Gemini CLI** and custom prompt engineering. This ensures every code change is traceable back to a stakeholder requirement.
+
+### 1. Context & Constitution
+We begin by gathering raw requirements from stakeholders and developers. We then execute the `create-constitution-prompt.md` to generate the project's **Constitution**—the foundational rules and mission that govern all subsequent agent actions.
+
+### 2. Phase Planning
+For every roadmap milestone, we initialize a new phase in `specs/`:
+- **Requirements:** Detailed functional specs.
+- **Plan:** A technical blueprint generated via the planning prompt.
+- **Validation:** A checklist of test cases and success criteria.
+
+### 3. Implementation & Iteration
+Using the `implement-phase-prompt.md`, the agent executes the plan. If requirements shift or technical debt is identified, we use `update-specific-phase-plan-prompt.md` to surgically modify the current phase without losing context.
+
+### 4. Validation & Hardening
+No phase is marked complete until it passes the `validation.md` criteria. This involves:
+- **Automated Testing:** Vitest suites for logic and components.
+- **Manual Verification:** Scripted UI/UX walkthroughs.
+
+### 5. Project Replanning
+As phases are completed, we run the `replanning-project-level-prompt.md`. This updates the `roadmap.md` and `mission.md`, allowing the project to evolve dynamically based on real-world implementation feedback.
+
+### 6. Maintenance & Skills
+Finalized changes are documented using the **Changelog Manager** skill, ensuring the `CHANGELOG.md` is always a perfect reflection of the git history and project specs.
 
 ## 📖 Learn More
 
