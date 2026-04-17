@@ -102,6 +102,16 @@ AgentClinic is being built in iterative phases:
 - [ ] **Phase 9:** Polish & UI (Accessibility & Aesthetics)
 - [ ] **Phase 10:** Hardening (Error Boundaries & Security)
 
+## 🛠️ Maintenance
+
+### Changelog Management
+This project uses a custom Gemini CLI skill, `changelog-manager`, to maintain the `CHANGELOG.md`.
+
+To update the changelog before a merge or release:
+1. Ensure all changes are committed.
+2. Activate the skill in Gemini CLI: `activate_skill(name="changelog-manager")` (or let the agent trigger it).
+3. The agent will run the update script to synchronize `CHANGELOG.md` with the git history.
+
 ## 📖 Learn More
 
 This project serves as a demonstration of **Spec-Driven Development** with AI coding agents, transitioning from stakeholder requirements to a production-ready application.
