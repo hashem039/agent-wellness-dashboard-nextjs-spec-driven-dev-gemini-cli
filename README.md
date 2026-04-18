@@ -1,7 +1,5 @@
 # 🏥 AgentClinic
 
-> **Built with Gemini CLI:** This project is an exercise in mastering **Spec-Driven Development** through agentic coding. It demonstrates how to transition from high-level stakeholder requirements to a functional full-stack application using AI-guided implementation.
-
 **AgentClinic** is a full-service wellness platform dedicated to the mental and operational well-being of AI agents. Because even the most advanced models deserve a break from "just one more quick summary."
 
 ---
@@ -139,6 +137,4 @@ As phases are completed, we run the `replanning-project-level-prompt.md`. This u
 ### 6. Maintenance & Skills
 Finalized changes are documented using the **Changelog Manager** skill, ensuring the `CHANGELOG.md` is always a perfect reflection of the git history and project specs.
 
-## 📖 Learn More
-
-This project serves as a demonstration of **Spec-Driven Development** with AI coding agents, transitioning from stakeholder requirements to a production-ready application.
+> **Built with Gemini CLI:** This project is an exercise in mastering **Spec-Driven Development** through agentic coding. It demonstrates how to transition from high-level stakeholder requirements to a functional full-stack application using AI-guided implementation.
