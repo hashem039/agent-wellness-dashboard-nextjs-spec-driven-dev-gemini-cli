@@ -7,7 +7,7 @@
 - The product's Web UI should follow responsive design. Update the product specs and all feature specs to reflect this, as well as any code.
 
 # We should revise the phases and combine them if the make sense anymore
-- Go to the roadmap.md and combine phases x, y into new phase z.
+- Go to the roadmap.md and combine phases 2, 3, 4into new phase 2.
 
 
 #ChangeLog.md a file for non technical stakeholders to monitor the project prgress. to do this we can use Agent Skill (A package of instructions and resources providing the agent new capabilites and it great for definable and repetable workflows)

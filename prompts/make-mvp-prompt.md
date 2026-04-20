@@ -8,3 +8,9 @@ Create:
 
 Refer to specs/mission.md, specs/tech-stack.md plus the existing feature specs for guidance.
 Important: You must use your AskUserQuestion tool, grouped on these 3, before writing to disk
+
+
+
+#to validate the code results
+
+Based on the MVP, did you find anything that needs clarificaion in the specs
