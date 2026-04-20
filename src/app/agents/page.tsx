@@ -1,20 +1,12 @@
 import Link from 'next/link';
 import db, { Agent } from '@/lib/db';
+import StatusBadge from '@/components/StatusBadge';
 import styles from './agents.module.css';
 
 export const dynamic = 'force-dynamic';
 
 export default function AgentsPage() {
   const agents = db.prepare('SELECT * FROM agents').all() as Agent[];
-
-  const getStatusClass = (status: string) => {
-    switch (status) {
-      case 'Admitted': return styles.statusAdmitted;
-      case 'In Therapy': return styles.statusInTherapy;
-      case 'Discharged': return styles.statusDischarged;
-      default: return '';
-    }
-  };
 
   return (
     <div className="container">
@@ -28,10 +20,9 @@ export default function AgentsPage() {
           <Link href={`/agents/${agent.id}`} key={agent.id} className={styles.card}>
             <div className={styles.modelBadge}>{agent.model_type}</div>
             <h2 className={styles.agentName}>{agent.name}</h2>
-            <div className={styles.statusRow}>
-              <span className={`${styles.statusDot} ${getStatusClass(agent.status)}`}></span>
-              {agent.status}
-            </div>
+            
+            <StatusBadge status={agent.status} />
+            
             <div className={styles.viewProfile}>
               View Profile →
             </div>

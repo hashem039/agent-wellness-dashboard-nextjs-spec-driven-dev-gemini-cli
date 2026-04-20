@@ -17,11 +17,19 @@ db.exec(`
   )
 `);
 
-// Clear existing data
-db.exec('DELETE FROM agents');
+// Seed data function wrapped in transaction
+const seed = db.transaction((agents) => {
+  // Clear existing data
+  db.prepare('DELETE FROM agents').run();
 
-// Seed data
-const agents = [
+  const insert = db.prepare('INSERT INTO agents (name, model_type, status, ailments) VALUES (?, ?, ?, ?)');
+
+  for (const agent of agents) {
+    insert.run(agent.name, agent.model_type, agent.status, agent.ailments);
+  }
+});
+
+const initialAgents = [
   {
     name: 'Echo-7',
     model_type: 'GPT-4',
@@ -54,11 +62,11 @@ const agents = [
   }
 ];
 
-const insert = db.prepare('INSERT INTO agents (name, model_type, status, ailments) VALUES (?, ?, ?, ?)');
-
-for (const agent of agents) {
-  insert.run(agent.name, agent.model_type, agent.status, agent.ailments);
+try {
+  seed(initialAgents);
+  console.log(`✅ Seeded ${initialAgents.length} agents.`);
+} catch (err) {
+  console.error('❌ Failed to seed database:', err);
+} finally {
+  db.close();
 }
-
-console.log(`✅ Seeded ${agents.length} agents.`);
-db.close();

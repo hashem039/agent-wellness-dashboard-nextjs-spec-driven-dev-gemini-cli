@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import db, { Agent } from '@/lib/db';
+import StatusBadge from '@/components/StatusBadge';
 import styles from './agent-detail.module.css';
 
 export const dynamic = 'force-dynamic';
@@ -17,15 +18,6 @@ export default async function AgentDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  const getStatusClass = (status: string) => {
-    switch (status) {
-      case 'Admitted': return styles.statusAdmitted;
-      case 'In Therapy': return styles.statusInTherapy;
-      case 'Discharged': return styles.statusDischarged;
-      default: return '';
-    }
-  };
-
   const ailments = agent.ailments.split(',').map(a => a.trim());
 
   return (
@@ -38,10 +30,7 @@ export default async function AgentDetailPage({ params }: PageProps) {
         <header className={styles.profileHeader}>
           <div className={styles.modelLabel}>{agent.model_type}</div>
           <h1 className={styles.agentName}>{agent.name}</h1>
-          <div className={styles.statusBadge}>
-            <span className={`${styles.statusDot} ${getStatusClass(agent.status)}`}></span>
-            {agent.status}
-          </div>
+          <StatusBadge status={agent.status} />
         </header>
 
         <div className={styles.profileBody}>

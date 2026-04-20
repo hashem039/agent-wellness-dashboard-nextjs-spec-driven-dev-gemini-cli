@@ -52,24 +52,6 @@
   width: fit-content;
 }
 
-.statusRow {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.statusDot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-.statusAdmitted { background-color: #ef4444; }
-.statusInTherapy { background-color: #f59e0b; }
-.statusDischarged { background-color: #10b981; }
-
 .viewProfile {
   margin-top: auto;
   color: var(--primary);

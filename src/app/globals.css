@@ -10,6 +10,8 @@
   --header-bg: #ffffff;
   --footer-bg: #f8fafc;
   --max-width: 1100px;
+  --ailment-bg: #fee2e2;
+  --ailment-text: #991b1b;
 }
 
 html {

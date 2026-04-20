@@ -29,6 +29,9 @@
   padding: 2.5rem;
   border-bottom: 1px solid var(--border);
   background: linear-gradient(to bottom right, var(--accent), #ffffff);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .modelLabel {
@@ -37,36 +40,13 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   color: var(--secondary);
-  margin-bottom: 0.5rem;
 }
 
 .agentName {
   font-size: 2.5rem;
   font-weight: 800;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
-
-.statusBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 2rem;
-  font-weight: 600;
-  font-size: 0.875rem;
-}
-
-.statusDot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.statusAdmitted { background-color: #ef4444; }
-.statusInTherapy { background-color: #f59e0b; }
-.statusDischarged { background-color: #10b981; }
 
 .profileBody {
   padding: 2.5rem;
@@ -92,8 +72,8 @@
 }
 
 .ailmentTag {
-  background: #fee2e2;
-  color: #991b1b;
+  background: var(--ailment-bg);
+  color: var(--ailment-text);
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   font-size: 0.875rem;
