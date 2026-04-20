@@ -26,14 +26,12 @@ Built with a modern, popular stack for reliability and performance:
 ```text
 my-agentclinic/
 ├── public/              # Static assets (images, icons, etc.)
+├── scripts/             # Database maintenance and seed scripts
 ├── specs/               # Product specifications and roadmap
 ├── src/
-│   └── app/             # App Router: layout, pages, and global styles
-│       ├── favicon.ico
-│       ├── globals.css
-│       ├── layout.tsx   # Root layout (Navigation, Footer)
-│       ├── page.tsx     # Homepage (/)
-│       └── page.module.css
+│   ├── app/             # App Router: layout, pages, and global styles
+│   ├── components/      # Shared React components (StatusBadge, etc.)
+│   └── lib/             # Database initialization and shared utilities
 ├── .gitignore
 ├── next.config.ts
 ├── package.json
@@ -51,6 +49,11 @@ my-agentclinic/
 2. Install dependencies:
    ```bash
    npm install
+   ```
+
+3. Initialize the database:
+   ```bash
+   npm run db:seed
    ```
 
 ### Development
