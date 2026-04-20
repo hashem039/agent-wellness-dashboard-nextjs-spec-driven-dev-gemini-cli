@@ -20,10 +20,10 @@ Phases are intentionally small — each one is a shippable slice of work, indepe
 - [x] Dynamic route `/agents/[id]` showing detailed profile
 - [x] Display name, model type, status, and ailments
 
-## Phase 3 — Ailments Catalog
-- `ailments` table + seed data
-- `/ailments` list page
-- Relationship mapping between agents and ailments
+## Phase 3 — Ailments Catalog (Completed)
+- [x] `ailments` table + seed data
+- [x] `/ailments` list page
+- [x] Relationship mapping between agents and ailments
 
 ## Phase 4 — Therapies Catalog
 - `therapies` table + seed data
