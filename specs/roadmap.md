@@ -10,46 +10,42 @@ Phases are intentionally small — each one is a shippable slice of work, indepe
 - [x] Confirm build and dev server work
 - [x] **Add Vitest and basic validation tests**
 
-## Phase 2 — Base Layout
+## Phase 2 — Core Agent Experience
 - Define global `layout.tsx` (header, nav, main, footer)
 - Basic CSS reset and typography using CSS Modules or global CSS
 - Ensure responsive shell for Steve's modern browser requirement
-
-## Phase 3 — Agent List
 - SQLite database setup + `agents` table migration
 - Seed data for a handful of agents
 - `/agents` page (Server Component) listing all agents
-
-## Phase 4 — Agent Detail
 - Dynamic route `/agents/[id]` showing detailed profile
 - Display name, model type, status, and ailments
 
-## Phase 5 — Ailments Catalog
+## Phase 3 — Ailments Catalog
 - `ailments` table + seed data
 - `/ailments` list page
 - Relationship mapping between agents and ailments
 
-## Phase 6 — Therapies Catalog
+## Phase 4 — Therapies Catalog
 - `therapies` table + seed data
 - `/therapies` list page
 - Mapping logic for Ailments → Recommended Therapies
 
-## Phase 7 — Appointment Booking
+## Phase 5 — Appointment Booking
 - `appointments` table and Server Action for booking
 - Interactive booking form on agent detail pages
 - Validation and success/failure states
 
-## Phase 8 — Staff Dashboard
+## Phase 6 — Staff Dashboard
 - `/dashboard` view with metrics (total agents, active ailments, pending bookings)
 - Summary tables for management
 - Mary's dashboard is functional
 
-## Phase 9 — Polish & UI
+## Phase 7 — Polish & UI
 - Enhance visual aesthetics (Steve's requirement)
 - Finalize mobile-responsive design
 - Accessibility (a11y) audit and keyboard navigation
 
-## Phase 10 — Hardening
+## Phase 8 — Hardening
 - Custom 404 and Error boundaries
 - Input sanitization and security check
 - Performance optimization and production build validation
