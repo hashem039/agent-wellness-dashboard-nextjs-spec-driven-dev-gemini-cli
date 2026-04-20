@@ -90,7 +90,7 @@ npm run start
 AgentClinic is being built in iterative phases:
 
 - [x] **Phase 1:** Hello Next.js (Initialization & Branding)
-- [ ] **Phase 2:** Core Agent Experience (Layout, SQLite, & Profiles)
+- [x] **Phase 2:** Core Agent Experience (Layout, SQLite, & Profiles)
 - [ ] **Phase 3:** Ailments Catalog (Relationship Mapping)
 - [ ] **Phase 4:** Therapies Catalog (Treatment Recommendations)
 - [ ] **Phase 5:** Appointment Booking (Server Actions & Forms)

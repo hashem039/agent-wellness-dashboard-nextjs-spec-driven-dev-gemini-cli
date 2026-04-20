@@ -10,15 +10,15 @@ Phases are intentionally small — each one is a shippable slice of work, indepe
 - [x] Confirm build and dev server work
 - [x] **Add Vitest and basic validation tests**
 
-## Phase 2 — Core Agent Experience
-- Define global `layout.tsx` (header, nav, main, footer)
-- Basic CSS reset and typography using CSS Modules or global CSS
-- Ensure responsive shell for Steve's modern browser requirement
-- SQLite database setup + `agents` table migration
-- Seed data for a handful of agents
-- `/agents` page (Server Component) listing all agents
-- Dynamic route `/agents/[id]` showing detailed profile
-- Display name, model type, status, and ailments
+## Phase 2 — Core Agent Experience (Completed)
+- [x] Define global `layout.tsx` (header, nav, main, footer)
+- [x] Basic CSS reset and typography using CSS Modules or global CSS
+- [x] Ensure responsive shell for Steve's modern browser requirement
+- [x] SQLite database setup + `agents` table migration
+- [x] Seed data for a handful of agents
+- [x] `/agents` page (Server Component) listing all agents
+- [x] Dynamic route `/agents/[id]` showing detailed profile
+- [x] Display name, model type, status, and ailments
 
 ## Phase 3 — Ailments Catalog
 - `ailments` table + seed data
