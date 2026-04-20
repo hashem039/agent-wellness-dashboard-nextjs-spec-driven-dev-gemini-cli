@@ -35,6 +35,7 @@ export default function RootLayout({
             <nav className={styles.nav}>
               <Link href="/" className={styles.navLink}>Home</Link>
               <Link href="/agents" className={styles.navLink}>Agents</Link>
+              <Link href="/ailments" className={styles.navLink}>Ailments</Link>
             </nav>
           </div>
         </header>

@@ -78,6 +78,17 @@
   border-radius: 0.5rem;
   font-size: 0.875rem;
   font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.ailmentTag:hover {
+  opacity: 0.8;
+  color: var(--ailment-text);
+}
+
+.noAilments {
+  color: var(--secondary);
+  font-style: italic;
 }
 
 .notFound {

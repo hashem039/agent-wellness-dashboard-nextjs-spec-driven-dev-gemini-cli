@@ -24,5 +24,15 @@ export interface Agent {
   name: string;
   model_type: string;
   status: string;
-  ailments: string;
+}
+
+export interface Ailment {
+  id: number;
+  name: string;
+  description: string;
+  severity: string;
+}
+
+export interface AgentWithAilments extends Agent {
+  ailments: Ailment[];
 }
