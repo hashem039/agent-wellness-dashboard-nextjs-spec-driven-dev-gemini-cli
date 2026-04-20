@@ -1,33 +1,72 @@
-.page {
+.hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 2rem;
-  font-family: var(--font-geist-sans);
+  text-align: center;
+  padding: 6rem 1rem;
+  min-height: 60vh;
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  text-align: center;
+.title {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
   max-width: 800px;
 }
 
-.main h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
+.highlight {
+  color: var(--primary);
 }
 
-.main p {
+.description {
   font-size: 1.25rem;
+  color: var(--secondary);
+  max-width: 600px;
+  margin-bottom: 3rem;
 }
 
-.content {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.primaryButton {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.primaryButton:hover {
+  background-color: var(--primary-hover);
+  color: white;
+}
+
+.secondaryButton {
+  background-color: var(--accent);
+  color: var(--foreground);
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.secondaryButton:hover {
+  background-color: var(--border);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
 }

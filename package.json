@@ -3,28 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint",
-    "test": "vitest"
-  },
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start",
+      "lint": "next lint",
+      "test": "vitest",
+      "db:seed": "node scripts/seed-db.js"
+    },
   "dependencies": {
+    "better-sqlite3": "^12.9.0",
     "next": "16.2.4",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.2.0",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
     "jsdom": "^26.0.0",
     "typescript": "^5",
-    "vitest": "^3.0.0",
-    "@testing-library/react": "^16.2.0",
-    "@testing-library/dom": "^10.4.0",
-    "@vitejs/plugin-react": "^4.3.4"
+    "vitest": "^3.0.0"
   }
 }
