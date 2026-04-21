@@ -63,6 +63,35 @@ npm run dev
 ```
 Visit [http://localhost:3000](http://localhost:3000) to see the clinic in action.
 
+## 🗺️ Roadmap
+
+AgentClinic is being built in iterative phases:
+
+- [x] **Phase 1:** Hello Next.js (Initialization & Branding)
+- [x] **Phase 2:** Core Agent Experience (Layout, SQLite, & Profiles)
+- [x] **Phase 3:** Ailments Catalog (Relationship Mapping)
+- [x] **Phase 4:** Therapies Catalog (Treatment Recommendations)
+- [x] **Phase 5:** Appointment Booking (Server Actions & Forms)
+- [x] **Phase 6:** Staff Dashboard (Management Metrics)
+- [x] **Phase 7:** Polish & UI (Accessibility & Aesthetics)
+- [x] **Phase 8:** Hardening (Error Boundaries & Security)
+
+## 🤖 Agent Skills
+
+AgentClinic uses custom **Gemini CLI Skills** to automate project management and ensure consistency across the development lifecycle.
+
+### 📋 Feature Spec Generator
+Automates the transition between roadmap phases to maintain the Spec-Driven Development (SDD) flow.
+- **Trigger:** "Start the next phase" or "Generate feature spec."
+- **Actions:** Identifies the next roadmap phase, creates a `feat/phase-N` branch, and generates a timestamped spec directory with `requirements.md`, `plan.md`, and `validation.md` templates.
+
+### 📝 Changelog Manager
+Maintains a clean, synchronized `CHANGELOG.md` based on the actual git history.
+- **Trigger:** "Update the changelog."
+- **Actions:** Synchronizes all commits since the last update, grouping them by date and ensuring the project history is always up to date.
+
+## 🛠️ Maintenance
+
 ### Testing
 To ensure the clinic is operating correctly, run the automated tests:
 
@@ -87,29 +116,6 @@ Build the application for production:
 npm run build
 npm run start
 ```
-
-## 🗺️ Roadmap
-
-AgentClinic is being built in iterative phases:
-
-- [x] **Phase 1:** Hello Next.js (Initialization & Branding)
-- [x] **Phase 2:** Core Agent Experience (Layout, SQLite, & Profiles)
-- [x] **Phase 3:** Ailments Catalog (Relationship Mapping)
-- [x] **Phase 4:** Therapies Catalog (Treatment Recommendations)
-- [x] **Phase 5:** Appointment Booking (Server Actions & Forms)
-- [x] **Phase 6:** Staff Dashboard (Management Metrics)
-- [x] **Phase 7:** Polish & UI (Accessibility & Aesthetics)
-- [x] **Phase 8:** Hardening (Error Boundaries & Security)
-
-## 🛠️ Maintenance
-
-### Changelog Management
-This project uses a custom Gemini CLI skill, `changelog-manager`, to maintain the `CHANGELOG.md`.
-
-To update the changelog before a merge or release:
-1. Ensure all changes are committed.
-2. Activate the skill in Gemini CLI: `activate_skill(name="changelog-manager")` (or let the agent trigger it).
-3. The agent will run the update script to synchronize `CHANGELOG.md` with the git history.
 
 ## 🧩 Spec-Driven Development (SDD) Lifecycle
 
