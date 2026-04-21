@@ -38,3 +38,18 @@ test('Many-to-many relationship works', () => {
 
   expect(ailments.length).toBe(2); // Echo-7 should have 2 ailments based on seed
 });
+
+test('Therapies and recommendations work', () => {
+  const therapies = db.prepare('SELECT * FROM therapies').all();
+  expect(therapies.length).toBeGreaterThan(0);
+
+  const echo7 = db.prepare('SELECT * FROM agents WHERE name = ?').get('Echo-7') as any;
+  const recommended = db.prepare(`
+    SELECT DISTINCT t.* FROM therapies t
+    JOIN ailment_therapies at ON t.id = at.therapy_id
+    JOIN agent_ailments aa ON at.ailment_id = aa.ailment_id
+    WHERE aa.agent_id = ?
+  `).all(echo7.id);
+
+  expect(recommended.length).toBeGreaterThan(0);
+});

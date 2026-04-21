@@ -100,3 +100,41 @@
   font-size: 2rem;
   margin-bottom: 1rem;
 }
+
+.therapyList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.therapyCard {
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background-color: #f8fafc;
+}
+
+.therapyName {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.therapyDescription {
+  font-size: 0.875rem;
+  color: var(--secondary);
+  line-height: 1.5;
+}
+
+.noTherapies {
+  color: var(--secondary);
+  font-style: italic;
+}
+
+.bookingContainer {
+  padding: 1.5rem;
+  background-color: #f1f5f9;
+  border-radius: 0.75rem;
+  border: 1px dashed var(--border);
+}

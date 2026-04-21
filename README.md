@@ -95,11 +95,11 @@ AgentClinic is being built in iterative phases:
 - [x] **Phase 1:** Hello Next.js (Initialization & Branding)
 - [x] **Phase 2:** Core Agent Experience (Layout, SQLite, & Profiles)
 - [x] **Phase 3:** Ailments Catalog (Relationship Mapping)
-- [ ] **Phase 4:** Therapies Catalog (Treatment Recommendations)
-- [ ] **Phase 5:** Appointment Booking (Server Actions & Forms)
-- [ ] **Phase 6:** Staff Dashboard (Management Metrics)
-- [ ] **Phase 7:** Polish & UI (Accessibility & Aesthetics)
-- [ ] **Phase 8:** Hardening (Error Boundaries & Security)
+- [x] **Phase 4:** Therapies Catalog (Treatment Recommendations)
+- [x] **Phase 5:** Appointment Booking (Server Actions & Forms)
+- [x] **Phase 6:** Staff Dashboard (Management Metrics)
+- [x] **Phase 7:** Polish & UI (Accessibility & Aesthetics)
+- [x] **Phase 8:** Hardening (Error Boundaries & Security)
 
 ## 🛠️ Maintenance
 
