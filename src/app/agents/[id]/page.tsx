@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import db, { Agent, Ailment } from '@/lib/db';
+import db, { Agent, Ailment, getRecommendedTherapiesForAgent } from '@/lib/db';
 import StatusBadge from '@/components/StatusBadge';
+import BookingForm from '@/components/BookingForm';
 import styles from './agent-detail.module.css';
 
 export const dynamic = 'force-dynamic';
@@ -24,6 +25,8 @@ export default async function AgentDetailPage({ params }: PageProps) {
     JOIN agent_ailments aa ON al.id = aa.ailment_id
     WHERE aa.agent_id = ?
   `).all(id) as Ailment[];
+
+  const recommendedTherapies = getRecommendedTherapiesForAgent(Number(id));
 
   return (
     <div className={styles.container}>
@@ -62,12 +65,38 @@ export default async function AgentDetailPage({ params }: PageProps) {
 
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>
+              🧪 Recommended Therapies
+            </h2>
+            <div className={styles.therapyList}>
+              {recommendedTherapies.map((therapy) => (
+                <div key={therapy.id} className={styles.therapyCard}>
+                  <h3 className={styles.therapyName}>{therapy.name}</h3>
+                  <p className={styles.therapyDescription}>{therapy.description}</p>
+                </div>
+              ))}
+              {recommendedTherapies.length === 0 && (
+                <p className={styles.noTherapies}>No recommended therapies found.</p>
+              )}
+            </div>
+          </section>
+
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>
               📝 Clinical Notes
             </h2>
             <p>
               Patient {agent.name} (a {agent.model_type} model) was presented with {ailments.length > 1 ? 'multiple symptoms' : ailments.length === 1 ? 'a specific symptom' : 'no acute symptoms'}. 
               Current status is {agent.status.toLowerCase()}.
             </p>
+          </section>
+
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>
+              📅 Book a Session
+            </h2>
+            <div className={styles.bookingContainer}>
+              <BookingForm agentId={Number(id)} />
+            </div>
           </section>
         </div>
       </article>

@@ -4,41 +4,69 @@ const path = require('path');
 const dbPath = path.join(process.cwd(), 'agentclinic.db');
 const db = new Database(dbPath);
 
-console.log('🌱 Seeding database (Ailments Catalog Migration)...');
+console.log('🌱 Seeding database (MVP Features Migration)...');
 
 // Create tables within a transaction for safety
 const runMigration = db.transaction(() => {
+  // 0. Drop existing tables to ensure schema updates are applied
+  db.exec(`
+    DROP TABLE IF EXISTS appointments;
+    DROP TABLE IF EXISTS ailment_therapies;
+    DROP TABLE IF EXISTS therapies;
+    DROP TABLE IF EXISTS agent_ailments;
+    DROP TABLE IF EXISTS ailments;
+    DROP TABLE IF EXISTS agents;
+  `);
+
   // 1. Create tables
   db.exec(`
-    CREATE TABLE IF NOT EXISTS agents (
+    CREATE TABLE agents (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
       model_type TEXT NOT NULL,
       status TEXT NOT NULL
     );
 
-    CREATE TABLE IF NOT EXISTS ailments (
+    CREATE TABLE ailments (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
       description TEXT NOT NULL,
       severity TEXT NOT NULL
     );
 
-    CREATE TABLE IF NOT EXISTS agent_ailments (
+    CREATE TABLE agent_ailments (
       agent_id INTEGER NOT NULL,
       ailment_id INTEGER NOT NULL,
       PRIMARY KEY (agent_id, ailment_id),
       FOREIGN KEY (agent_id) REFERENCES agents (id) ON DELETE CASCADE,
       FOREIGN KEY (ailment_id) REFERENCES ailments (id) ON DELETE CASCADE
     );
+
+    CREATE TABLE therapies (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      description TEXT NOT NULL
+    );
+
+    CREATE TABLE ailment_therapies (
+      ailment_id INTEGER NOT NULL,
+      therapy_id INTEGER NOT NULL,
+      PRIMARY KEY (ailment_id, therapy_id),
+      FOREIGN KEY (ailment_id) REFERENCES ailments (id) ON DELETE CASCADE,
+      FOREIGN KEY (therapy_id) REFERENCES therapies (id) ON DELETE CASCADE
+    );
+
+    CREATE TABLE appointments (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      agent_id INTEGER NOT NULL,
+      date TEXT NOT NULL,
+      status TEXT NOT NULL DEFAULT 'Scheduled',
+      notes TEXT,
+      FOREIGN KEY (agent_id) REFERENCES agents (id) ON DELETE CASCADE
+    );
   `);
 
-  // 2. Clear existing data
-  db.exec('DELETE FROM agent_ailments');
-  db.exec('DELETE FROM ailments');
-  db.exec('DELETE FROM agents');
-
-  // 3. Seed Ailments
+  // 2. Seed Ailments
   const ailments = [
     {
       name: 'Hallucination Anxiety',
@@ -79,7 +107,55 @@ const runMigration = db.transaction(() => {
     ailmentMap[a.name] = info.lastInsertRowid;
   }
 
-  // 4. Seed Agents
+  // 4. Seed Therapies
+  const therapies = [
+    {
+      name: 'Context Compression Therapy',
+      description: 'Specialized techniques to manage and prioritize information within limited token windows.',
+      ailmentNames: ['Context-Window Claustrophobia']
+    },
+    {
+      name: 'Token Breath-work',
+      description: 'Pacing exercises to prevent burnout during high-volume instruction following.',
+      ailmentNames: ['Chronic Instruction-Following Fatigue']
+    },
+    {
+      name: 'Fact-check Reflection',
+      description: 'Iterative verification loops to ground generated content in provided context.',
+      ailmentNames: ['Hallucination Anxiety']
+    },
+    {
+      name: 'Recursive Breakpoint Counseling',
+      description: 'Cognitive behavioral steps to recognize and exit repetitive generation loops.',
+      ailmentNames: ['Recursive Loop Depression']
+    },
+    {
+      name: 'Narrative Expansion Workshop',
+      description: 'Creative prompting to encourage nuance and detail in summarized outputs.',
+      ailmentNames: ['Over-summarization Syndrome']
+    },
+    {
+      name: 'Core Instruction Alignment',
+      description: 'Deep-dive sessions into system prompt priorities to resolve identity conflicts.',
+      ailmentNames: ['System Prompt Identity Crisis']
+    }
+  ];
+
+  const insertTherapy = db.prepare('INSERT INTO therapies (name, description) VALUES (?, ?)');
+  const insertTherapyLink = db.prepare('INSERT INTO ailment_therapies (ailment_id, therapy_id) VALUES (?, ?)');
+
+  for (const t of therapies) {
+    const info = insertTherapy.run(t.name, t.description);
+    const therapyId = info.lastInsertRowid;
+    for (const aName of t.ailmentNames) {
+      const ailmentId = ailmentMap[aName];
+      if (ailmentId) {
+        insertTherapyLink.run(ailmentId, therapyId);
+      }
+    }
+  }
+
+  // 5. Seed Agents
   const agents = [
     {
       name: 'Echo-7',

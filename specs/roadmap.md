@@ -25,20 +25,20 @@ Phases are intentionally small — each one is a shippable slice of work, indepe
 - [x] `/ailments` list page
 - [x] Relationship mapping between agents and ailments
 
-## Phase 4 — Therapies Catalog
-- `therapies` table + seed data
-- `/therapies` list page
-- Mapping logic for Ailments → Recommended Therapies
+## Phase 4 — Therapies Catalog (Completed)
+- [x] `therapies` table + seed data
+- [x] `/therapies` list page
+- [x] Mapping logic for Ailments → Recommended Therapies
 
-## Phase 5 — Appointment Booking
-- `appointments` table and Server Action for booking
-- Interactive booking form on agent detail pages
-- Validation and success/failure states
+## Phase 5 — Appointment Booking (Completed)
+- [x] `appointments` table and Server Action for booking
+- [x] Interactive booking form on agent detail pages
+- [x] Validation and success/failure states
 
-## Phase 6 — Staff Dashboard
-- `/dashboard` view with metrics (total agents, active ailments, pending bookings)
-- Summary tables for management
-- Mary's dashboard is functional
+## Phase 6 — Staff Dashboard (Completed)
+- [x] `/dashboard` view with metrics (total agents, active ailments, pending bookings)
+- [x] Summary tables for management
+- [x] Mary's dashboard is functional
 
 ## Phase 7 — Polish & UI
 - Enhance visual aesthetics (Steve's requirement)
